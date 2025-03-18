@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Student</title>
+</head>
+<body>
+<h1>Add Student</h1>
+<form action="/students/save" method="post" th:object="${student}">
+    <label>Name: <input type="text" th:field="*{name}"/></label>
+    <span th:errors="*{name}"></span><br/>
+
+    <label>Email: <input type="email" th:field="*{email}"/></label>
+    <span th:errors="*{email}"></span><br/>
+
+    <label>Age: <input type="number" th:field="*{age}"/></label>
+    <span th:errors="*{age}"></span><br/>
+
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>
