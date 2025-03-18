@@ -48,7 +48,7 @@ public class StudentController {
         return "redirect:/students";
     }
 
-
+//Return all students as JSON
     @GetMapping("/json")
     public ResponseEntity<List<Student>> getStudentsJson() {
         return ResponseEntity.ok(studentService.getAllStudents());

@@ -26,7 +26,4 @@ public class StudentService {
         students.removeIf(s -> s.getId() == id);
     }
 
-    public Optional<Student> findById(int id) {
-        return students.stream().filter(s -> s.getId() == id).findFirst();
-    }
 }
