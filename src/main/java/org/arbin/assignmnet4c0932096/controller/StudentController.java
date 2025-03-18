@@ -29,7 +29,7 @@ public class StudentController {
 
     @GetMapping("/new")
     public String showStudentForm(Model model) {
-        model.addAttribute("student", new Student("Arbin", "arbin@gmail.com", 44)); // Fix here
+        model.addAttribute("student", new Student("", "", 19)); // Fix here
         return "new-student";
     }
 

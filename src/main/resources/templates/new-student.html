@@ -2,21 +2,102 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Student</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #007bff;
+            font-size: 0.9em;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-<h1>Add Student</h1>
-<form action="/students/save" method="post" th:object="${student}">
-    <label>Name: <input type="text" th:field="*{name}"/></label>
-    <span th:errors="*{name}"></span><br/>
+<div class="card">
+    <h1>Add Student</h1>
+    <form action="/students/save" method="post" th:object="${student}">
+        <label>Name:</label>
+        <input type="text" th:field="*{name}"/>
+        <span th:errors="*{name}" class="error"></span>
 
-    <label>Email: <input type="email" th:field="*{email}"/></label>
-    <span th:errors="*{email}"></span><br/>
+        <label>Email:</label>
+        <input type="email" th:field="*{email}"/>
+        <span th:errors="*{email}" class="error"></span>
 
-    <label>Age: <input type="number" th:field="*{age}"/></label>
-    <span th:errors="*{age}"></span><br/>
+        <label>Age:</label>
+        <input type="number" th:field="*{age}"/>
+        <span th:errors="*{age}" class="error"></span>
 
-    <button type="submit">Save</button>
-</form>
+        <button type="submit" class="btn">Save</button>
+    </form>
+    <a href="/students" class="back-link">Back to Student List</a>
+</div>
 </body>
 </html>
